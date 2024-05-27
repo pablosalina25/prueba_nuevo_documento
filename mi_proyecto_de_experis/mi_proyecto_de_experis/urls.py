@@ -19,6 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('archivos/', include('archivos.urls')),
-    path('', include('archivos.urls')),
+    path('archivos_pdf/', include('archivos_pdf.urls')),
+    path('', include('archivos_pdf.urls')),
+    path('csv_checker/', include('csv_checker.urls')),
 ]
