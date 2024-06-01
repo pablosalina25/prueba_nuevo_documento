@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'archivos_pdf',
-    'csv_app'
+    'csv_app',
+    'other_files',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Archivos</title>
+</head>
+<body>
+    <h1>Subir Archivos</h1>
+
+    <form id="upload-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="archivo" id="file-input" multiple>
+        <div id="file-list"></div>
+        <button type="button" id="submit-button">Subir</button>
+    </form>
+
+    <script>
+        document.getElementById('file-input').addEventListener('change', function(e) {
+            var fileList = e.target.files;
+            var fileListDiv = document.getElementById('file-list');
+            fileListDiv.innerHTML = '';
+
+            Array.from(fileList).forEach(function(file) {
+                var fileName = document.createElement('p');
+                fileName.textContent = file.name;
+                fileListDiv.appendChild(fileName);
+            });
+        });
+
+        document.getElementById('submit-button').addEventListener('click', function() {
+            document.getElementById('upload-form').submit();
+        });
+    </script>
+</body>
+</html>

@@ -8,8 +8,8 @@ def upload_csv(request):
         form = CSVUploadForm(request.POST, request.FILES)
         if form.is_valid():
             file = request.FILES['file']
-            if file.size > 2097152:  # 2MB in bytes
-                return render(request, 'csv_app/error.html', {'error_message': 'El archivo es demasiado grande. Debe ser menor a 2MB.'})
+            if file.size > 2097152:
+                return render(request, 'csv_app/error.html', {'error_message': 'El archivo debe estar en formato CSV y ser menor a 2MB.'})
             if not file.name.endswith('.csv'):
                 return render(request, 'csv_app/error.html', {'error_message': 'El archivo no es un archivo CSV válido.'})
             form.save()

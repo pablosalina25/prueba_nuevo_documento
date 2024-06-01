@@ -24,6 +24,7 @@ urlpatterns = [
     path('archivos_pdf/', include('archivos_pdf.urls')),
     path('', include('archivos_pdf.urls')),
     path('csv/', include('csv_app.urls')),
+    path('other_files/', include('other_files.urls')), 
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
